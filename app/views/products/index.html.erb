@@ -1,0 +1,43 @@
+<h1>Products#index</h1>
+<div>
+	<table border ="1">
+		<tr>
+			<th><input type="checkbox" name="p_checked" id = "r_checked"></th>
+			<th>Name</th>
+			<th>Brand</th>
+		</tr>
+		<% @products.each do |product| %>
+			<tr>
+					<td><%= check_box_tag 'product_ids[]',product.id, false, :class => 'table-row-checkbox' %></td><br/>
+					<td><%= product.name%></td><br/>
+					<td><%= product.brand.name if product.brand%></td>
+					<td><%= link_to "edit" ,edit_product_path(product.id)%></td>
+					<td><%= link_to 'Destroy', product_path(product),
+                    method: :delete, data: { confirm: 'Are you sure?'}%></td>
+			</tr>
+		<% end%>
+	</table>
+	<button name = "" value = "" id = "abc">delete_check</button>
+	<%= link_to "New" ,new_product_path %>
+</div>
+<p>Find me in app/views/products/index.html.erb</p>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#r_checked").click(function(){
+			if(this.checked == true)
+			{
+				$("input[type=checkbox]").prop('checked', true);
+			}
+			else
+			{
+				$("input[type=checkbox]").prop('checked', false);
+			}
+		});
+
+		$("#abc").click(function(){
+			
+		});
+		
+	});
+</script>

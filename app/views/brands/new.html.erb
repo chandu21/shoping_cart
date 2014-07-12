@@ -1,0 +1,11 @@
+<h1>Brands#new</h1>
+<div>
+	<%= form_for @brand, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+	<label>Name</label>
+	<p>
+		<%= f.text_field :name %>
+	</p>
+	<%= f.submit "create" %>
+	<%end%>
+</div>
+<p>Find me in app/views/brands/new.html.erb</p>

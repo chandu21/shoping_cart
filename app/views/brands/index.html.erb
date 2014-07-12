@@ -1,0 +1,17 @@
+<div>
+<table border ="1">
+	<tr>
+		<th>Name</th>
+	</tr>
+
+		<% @brands.each do |brand| %>
+			<tr>
+					<td><%= brand.name%></td><br/>
+					<td><%= link_to "edit" ,edit_brand_path(brand.id)%></td>
+					<td><%= link_to 'Destroy', brand_path(brand),
+                    method: :delete, data: { confirm: 'Are you sure?'}%></td>
+			</tr>
+		<% end%>
+</table>
+</div>
+<%= link_to "New" ,new_brand_path %>
